@@ -2,7 +2,9 @@
  *
  * This stylesheet defines a clean and professional look with full responsive
  * support for mobile, tablet, and desktop devices. Features a hamburger menu
- * for mobile navigation, scalable typography, and flexible layouts. */
+ * for mobile navigation, scalable typography, and flexible layouts.
+ */
+
 /* CSS reset */
 * {
     box-sizing: border-box;
@@ -153,21 +155,21 @@ nav a:hover {
 #hero h1 {
     font-size: 2rem;
     font-family: var(--font-heading);
-    margin-bottom: .5rem;
+    margin-bottom: 1rem;
     line-height: 1.3;
 }
 
 #hero p {
     font-size: 1rem;
-    margin-bottom: .5rem;
+    margin-bottom: 1.5rem;
 }
 
 .btn {
     display: inline-block;
-    padding: .7rem 1.5rem;
+    padding: 0.7rem 1.5rem;
     border-radius: 30px;
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: bold;
 }
 
@@ -437,7 +439,7 @@ table tbody tr:hover {
 
 .photo-box {
     display: inline-block;
-    //outline: 2px solid red;
+    outline: 2px solid red;
     margin: 0 0 1rem 0;
     padding: 0;
 }
@@ -455,12 +457,13 @@ footer {
 /* ========================================
    RESPONSIVE MEDIA QUERIES
    ======================================== */
+
 /* Mobile devices (portrait phones, less than 576px) */
 @media (max-width: 575px) {
     .mobile-menu-toggle {
         display: flex;
     }
-
+    
     nav {
         position: fixed;
         top: 0;
@@ -473,47 +476,47 @@ footer {
         z-index: 1000;
         padding-top: 5rem;
     }
-
+    
     nav.active {
         right: 0;
     }
-
+    
     nav ul {
         flex-direction: column;
         gap: 0;
         padding: 1rem;
     }
-
+    
     nav li {
         border-bottom: 1px solid #e5e5e5;
     }
-
+    
     nav a {
         display: block;
         padding: 1rem;
         font-size: 1.1rem;
     }
-
+    
     header .logo img {
         height: 40px;
     }
-
+    
     #hero h1 {
         font-size: 1.5rem;
     }
-
+    
     #hero p {
         font-size: 0.95rem;
     }
-
+    
     .content-section {
         padding: 2rem 0;
     }
-
+    
     .content-section h2 {
         font-size: 1.5rem;
     }
-
+    
     .container {
         padding: 0 15px;
     }
@@ -524,7 +527,7 @@ footer {
     .mobile-menu-toggle {
         display: flex;
     }
-
+    
     nav {
         position: fixed;
         top: 0;
@@ -537,35 +540,35 @@ footer {
         z-index: 1000;
         padding-top: 5rem;
     }
-
+    
     nav.active {
         right: 0;
     }
-
+    
     nav ul {
         flex-direction: column;
         gap: 0;
         padding: 1rem;
     }
-
+    
     nav li {
         border-bottom: 1px solid #e5e5e5;
     }
-
+    
     nav a {
         display: block;
         padding: 1rem;
         font-size: 1rem;
     }
-
+    
     header .logo img {
         height: 50px;
     }
-
+    
     #hero h1 {
         font-size: 1.8rem;
     }
-
+    
     .model-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -576,27 +579,27 @@ footer {
     header .logo img {
         height: 60px;
     }
-
+    
     #hero h1 {
         font-size: 2.2rem;
     }
-
+    
     #hero p {
         font-size: 1.05rem;
     }
-
+    
     .model-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-
+    
     .team-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-
+    
     .content-section {
         padding: 3.5rem 0;
     }
-
+    
     .content-section h2 {
         font-size: 1.85rem;
     }
@@ -607,27 +610,27 @@ footer {
     header .logo img {
         height: 70px;
     }
-
+    
     #hero h1 {
         font-size: 2.5rem;
     }
-
+    
     #hero .hero-content {
         margin: 4rem auto;
     }
-
+    
     .model-grid {
         grid-template-columns: repeat(4, 1fr);
     }
-
+    
     .team-grid {
         grid-template-columns: repeat(3, 1fr);
     }
-
+    
     .content-section {
-        padding: .5rem 0;
+        padding: 4rem 0;
     }
-
+    
     .content-section h2 {
         font-size: 2rem;
     }
@@ -638,7 +641,7 @@ footer {
     header .logo img {
         height: 80px;
     }
-
+    
     .container {
         padding: 0 30px;
     }
@@ -649,21 +652,13 @@ footer {
     header {
         position: relative;
     }
-
+    
     .mobile-menu-toggle {
         display: none;
     }
-
+    
     nav {
         position: relative;
         right: auto;
     }
-}
-
-p {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    line-height: 1.5;
-
-    /* keep readability */
 }
