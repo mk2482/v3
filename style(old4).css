@@ -181,12 +181,6 @@ nav a:hover {
     background: #a61e1e;
 }
 
-#hero .btn {
-    margin-top: 3rem;
-
-    /* pushes the button lower */
-}
-
 /* ===== CONTENT SECTIONS ===== */
 .content-section {
     padding: 3rem 0;
