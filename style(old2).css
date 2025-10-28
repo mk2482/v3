@@ -1,0 +1,519 @@
+/* * SOAR Bio Marketing Website Styles
+ *
+ * This stylesheet defines a clean and professional look inspired by the
+ * Economist’s restrained typography and colour palette. A limited set of
+ * colours, generous white space and clear hierarchy ensure the content
+ * remains the focus. The layout is responsive and adapts gracefully to
+ * smaller screens. */
+/* CSS reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Colour palette */
+:root {
+    --color-primary: #030a18;
+
+    /* near‑black navy for text */
+    --color-secondary: #97b1df;
+
+    /* greyish blue for accents */
+    --color-accent: #c12a2a;
+
+    /* rich red accent reminiscent of The Economist */
+    --color-light-bg: #f5f5f5;
+
+    /* light grey background for alternate sections */
+    --font-heading: 'Georgia', 'Times New Roman', serif;
+    --font-body: 'Arial', sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--color-primary);
+    background-color: #fff;
+}
+
+/* Container to constrain content width */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    /* centers your site content */
+    padding: 0 20px;
+
+    /* adds 20px space on left and right */
+}
+
+/* Header and navigation */
+header {
+    background: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+}
+
+header .logo img {
+    /* Increase the logo size for greater prominence */
+    height: 80px;
+    width: auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--color-primary);
+    font-weight: bold;
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+nav a:hover {
+    color: var(--color-accent);
+}
+
+/* Hero section */
+/* The hero section uses a pseudo‑element to display the rotating 3D protein
+  illustration. The image is set on the ::before element and animated via
+  a slow rotation. This ensures the molecule appears to turn in space while
+  content remains sharp and legible above the overlay. The actual hero
+  element has no background image so that the pseudo‑element can handle
+  the animation. */
+#hero {
+    min-height: 75vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    overflow: hidden;
+}
+
+/* Create the rotating background image on a pseudo element */
+#hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('protein.png');
+    background-size: cover;
+    background-position: center;
+
+    /* Remove rotation animation for a static background */
+    animation: none;
+    transform-origin: center center;
+    z-index: 0;
+}
+
+/* Dark overlay for text readability */
+#hero .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(3, 10, 24, 0.65);
+    z-index: 1;
+}
+
+#hero .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    margin: 216px auto;
+    text-align: center;
+
+    /* center the headline + tagline */
+    padding: 0px;
+}
+
+#hero h1 {
+    font-size: 2.5rem;
+    font-family: var(--font-heading);
+    margin-bottom: 1rem;
+    margin-right: 0px;
+}
+
+#hero p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    margin-right: 0px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background: var(--color-accent);
+    color: #fff;
+    transition: background 0.3s ease;
+}
+
+/* Slightly darker tone on hover without using CSS functions */
+.btn-primary:hover {
+    background: #a61e1e;
+}
+
+/* General section styling */
+.content-section {
+    padding: 4rem 0;
+}
+
+.content-section.light-bg {
+    background: var(--color-light-bg);
+}
+
+.content-section h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+    position: relative;
+}
+
+.content-section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--color-accent);
+    margin-top: 0.5rem;
+}
+
+.mission-statement {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* Model grid styling */
+.model-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.model-step {
+    text-align: center;
+    padding: 1rem;
+}
+
+.icon-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--color-secondary);
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin: 0 auto 0.8rem;
+}
+
+.model-step h3 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    margin-bottom: 0.4rem;
+}
+
+.model-step p {
+    font-size: 0.95rem;
+    color: var(--color-primary);
+}
+
+/* Team section styling */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.team-card {
+    display: flex;
+    background: #fff;
+    border: 1px solid var(--color-secondary);
+    border-radius: 8px;
+    padding: 1.5rem;
+    align-items: flex-start;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.team-initials {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--color-secondary);
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+}
+
+.team-info h3 {
+    margin: 0 0 0.2rem 0;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+}
+
+.team-info .role {
+    font-size: 0.9rem;
+    color: var(--color-secondary);
+    margin-bottom: 0.6rem;
+    font-style: italic;
+}
+
+.team-info ul {
+    list-style: none;
+    padding-left: 1.2rem;
+    position: relative;
+}
+
+.team-info ul li {
+    margin-bottom: 0.4rem;
+    font-size: 0.9rem;
+    color: var(--color-primary);
+}
+
+.team-info ul li::before {
+    content: '\2022';
+    position: absolute;
+    left: -1.2rem;
+    color: var(--color-accent);
+    font-size: 1rem;
+    line-height: 1;
+}
+
+/* Track record table */
+.table-wrapper {
+    overflow-x: auto;
+    margin-top: 1rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+table thead {
+    background: var(--color-primary);
+    color: #fff;
+}
+
+table th,
+table td {
+    padding: 0.8rem 0.6rem;
+    text-align: left;
+}
+
+table tbody tr:nth-child(even) {
+    background: var(--color-light-bg);
+}
+
+table tbody tr:hover {
+    background: #eef3fc;
+}
+
+/* Contact section */
+/* The contact section should align with other sections; remove the narrow
+   max-width so it uses the full container width. */
+.contact-content {
+    max-width: none;
+}
+
+.contact-details a {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+.contact-details a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    background: #fff;
+    border-top: 1px solid #e5e5e5;
+    padding: 1rem 0;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--color-secondary);
+}
+
+/* Keyframes for rotating the hero illustration */
+@keyframes slowRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Founder cards styling */
+.founder-card {
+    background: #fff;
+    border: 1px solid var(--color-secondary);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+/* The default founder-photo rule is overridden below to use a consistent rectangular crop */
+.founder-card h3 {
+    margin: 1rem 1rem 0.3rem 1rem;
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+}
+
+.founder-card .role {
+    margin: 0 1rem 0.5rem 1rem;
+    color: var(--color-secondary);
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+.founder-card p {
+    margin: 0 1rem 1.2rem 1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--color-primary);
+}
+
+/* The founder card container must be relative so that tooltips can be positioned absolutely */
+.founder-card {
+    position: relative;
+}
+
+/* Founder photos fill the available width and maintain a consistent rectangular crop */
+/* Founder portraits should fill the width of the card while maintaining a
+   consistent aspect ratio. Use object-fit: cover so that the images fill
+   their container without distortion and centre the crop on the subject. */
+.founder-photo {
+    width: 100%;
+    height: 260px;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 6px;
+    display: block;
+}
+
+/* Tooltip containing the full biography. Hidden by default and shown on hover */
+/* Tooltip containing the full biography. Initially hidden and revealed when
+   hovering over the founder card. The tooltip appears to the right of the
+   card so the reader doesn’t need to scroll down to see it. A fixed width
+   ensures long biographies remain readable without dramatically altering
+   the layout. */
+.bio-tooltip {
+    display: none;
+
+    /* Position the tooltip as a fixed overlay near the bottom of the viewport
+     rather than anchored relative to the card. This ensures the full
+     biography pops up without requiring page scrolling. The overlay is
+     centered horizontally and limited in size so that long bios remain
+     readable. */
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 600px;
+    max-height: 70vh;
+    overflow-y: auto;
+    background: #fff;
+    border: 1px solid var(--color-secondary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    z-index: 1000;
+
+    /* Disable pointer events so the tooltip does not keep the card in the
+     hover state when the mouse moves over the tooltip itself. This
+     allows switching between different cards smoothly. */
+    pointer-events: none;
+}
+
+/* Show the biography tooltip when hovering over the card */
+.founder-card:hover .bio-tooltip {
+    display: block;
+}
+
+/* Styling for the brief founders’ track record statement */
+.founders-track {
+    font-size: 1rem;
+    margin: 0 0 1.5rem 0;
+    color: var(--color-primary);
+}
+
+/* Emphasise the first letter of each model step */
+.model-letter {
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: var(--color-accent);
+}
+
+/* === Image box outline that hugs the image === */
+.photo-box {
+    display: inline-block;
+
+    /* Makes the box wrap tightly around the image */
+    outline: 2px solid red;
+
+    /* Change color/thickness as desired */
+    margin: 0;
+    padding: 0;
+}
+
+.founder-photo {
+    display: block;
+
+    /* Removes extra space below the image */
+    width: 300px;
+
+    /* Adjust size as needed */
+    height: auto;
+
+    /* Keeps aspect ratio */
+    object-fit: contain;
+
+    /* Keeps image fully visible */
+    object-position: center;
+}
+
+body {
+    text-align: left;
+
+    /* Centers the image and box horizontally */
+}
